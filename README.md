@@ -64,7 +64,7 @@ Before you begin, ensure you have the following installed:
 The framework supports multiple device configurations defined in `page_object/desired_capabilities.py`. Currently configured devices:
 
 - **EMULATOR_ANDROID**: Android emulator (Pixel 3A, Android 10)
-- **MAC_MINI_LOCAL_IPHONE_XR**: iOS device (iPhone XR, iOS 14.4)
+- **MAC_MINI_LOCAL_IPHONE_XR**: iOS device (iPhone XR, iOS 14.4+)
 
 To add a new device, add a new configuration in the `DesiredCapabilities` class with the appropriate capabilities for your device.
 
@@ -238,9 +238,9 @@ Main dependencies (defined in Pipfile):
 
 ### Test Timeouts
 
-- The framework waits up to 120 seconds for device connection
-- Individual element waits default to 5 seconds
-- Adjust wait times in `base_view.py` if needed
+- The framework waits up to 120 seconds for device connection (configured in `tests/conftest.py`, line 87)
+- Individual element waits default to 5 seconds (can be adjusted per wait call or in `base_view.py`)
+- Adjust the `wait_time` parameter in the driver fixture if you need longer device initialization times
 
 ## License
 
